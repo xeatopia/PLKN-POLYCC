@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLKN@POLYCC Student Participation Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js from CDN for drawing charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <h1>PLKN@POLYCC</h1>
+      <p class="subtitle">Student Participation Dashboard</p>
+    </div>
+  </header>
+
+  <!-- ===== SUMMARY CARDS ===== -->
+  <main>
+    <section class="cards">
+      <div class="card">
+        <span class="card-label">Total Students</span>
+        <span class="card-value" id="totalStudents">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Active Participants</span>
+        <span class="card-value" id="activeParticipants">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Completed Training</span>
+        <span class="card-value" id="completedTraining">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Participation Rate</span>
+        <span class="card-value" id="participationRate">—</span>
+      </div>
+    </section>
+
+    <!-- ===== CHARTS SECTION ===== -->
+    <section class="charts">
+
+      <!-- Bar chart: participation by college -->
+      <div class="chart-box">
+        <h2>Participation by College</h2>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <!-- Pie chart: status breakdown -->
+      <div class="chart-box">
+        <h2>Status Breakdown</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+    </section>
+
+    <!-- ===== STUDENT TABLE ===== -->
+    <section class="table-section">
+      <h2>Student Records</h2>
+
+      <!-- Search box -->
+      <input
+        type="text"
+        id="searchBox"
+        placeholder="Search by name or college…"
+        oninput="filterTable()"
+      />
+
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>College</th>
+            <th>Programme</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows injected by dashboard.js -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>PLKN@POLYCC &copy; 2025 &mdash; Polytechnic Community College</p>
+  </footer>
+
+  <!-- Load data first, then the dashboard logic -->
+  <script src="data.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>
